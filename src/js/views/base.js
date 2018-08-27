@@ -4,7 +4,7 @@ export const elements = {
     searchDivAnimation: document.querySelector('.results'),
     searchResList: document.querySelector('.results__list'),
     searchResButton: document.querySelector('.results__pages'),
-    
+    recipe: document.querySelector('.recipe')
 };
 
 export const elementStrings = {
