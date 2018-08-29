@@ -113,41 +113,46 @@ const controlList = () => {
         listView.renderItem(item);
     });
 }
-elements.shopping.addEventListener('click', e=> {
+elements.shopping.addEventListener('click', e => {
     const id = e.target.closest('.shopping__item').dataset.itemid;
 
     //Handle the delete button
-    if (e.target.matches('.shopping__delete, .shopping__delete *')){
+    if (e.target.matches('.shopping__delete, .shopping__delete *')) {
         //Delete from state
         state.list.deleteItem(id);
 
         //Delete from UI
         listView.deleteItem(id);
-    } 
+    }
     //Handle the Count Update
-    else if (e.target.matches('.shopping__count-value')){
+    else if (e.target.matches('.shopping__count-value')) {
         const value = parseFloat(e.target.value, 10);
         state.list.updateCount(id, value);
     }
 });
 
+/** LIKE CONTROLLER */
+
+
+
+
 
 
 // Handling recipe button clicks
 elements.recipe.addEventListener('click', e => {
-    if (e.target.matches('.btn-decrease, .btn-decrease *')){
+    if (e.target.matches('.btn-decrease, .btn-decrease *')) {
         //Decrease button is clicked
-        if ( state.recipe.servings > 1 ){
+        if (state.recipe.servings > 1) {
             state.recipe.updateServings('dec');
             recipeView.updateServingsIngredients(state.recipe);
         }
-    } 
-    else if (e.target.matches('.btn-increase, .btn-increase *')){
+    }
+    else if (e.target.matches('.btn-increase, .btn-increase *')) {
         //Increase button is clicked
         state.recipe.updateServings('inc');
         recipeView.updateServingsIngredients(state.recipe);
     }
-    else if (e.target.matches('.recipe__btn--add, .recipe__btn--add *')){
+    else if (e.target.matches('.recipe__btn--add, .recipe__btn--add *')) {
         controlList();
     }
     console.log(state.recipe);
